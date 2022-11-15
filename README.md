@@ -1,6 +1,6 @@
 # kcc-demo
 
-Collection of Config Connector demo on GKE
+Collection of Config Connector demos on GKE. More info about KCC [here](https://cloud.google.com/config-connector/docs/how-to/getting-started).
 
 # Assumptions
 
