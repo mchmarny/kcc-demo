@@ -3,6 +3,4 @@ kind: PubSubTopic
 metadata:
   annotations:
     cnrm.cloud.google.com/project-id: PROJECT_ID
-  labels:
-    demo:kcc
   name: kcc-demo-topic

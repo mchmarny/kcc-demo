@@ -92,31 +92,27 @@ metadata:
   name: kcc-demo-topic
 ```
 
-Once created, you can describe the created resources: 
+Once created, you can describe the created resource: 
 
 ```shell
 kubectl describe pubsubtopics
 ```
 
-To verify that the resource is created: 
+You can also navigate to the list of PubSub Topics in [Console](https://console.cloud.google.com/cloudpubsub/topic/list), or verify (`condition met`) that the resource is created via `kubectl`: 
 
 ```shell
 kubectl wait --for=condition=READY pubsubtopics kcc-demo-topic
 ```
 
-Returns 
-
-```shell
-pubsubtopic.pubsub.cnrm.cloud.google.com/kcc-demo-topic condition met
-```
-
 # Cleanup
 
-To delete all resources created by this demo:
+To delete all resources created by this demo, including the GKE cluster service account:
 
 ```shell
 bin/cleanup
 ```
+
+To only reset demo state use `bin/reset`.
 
 # Disclaimer
 
