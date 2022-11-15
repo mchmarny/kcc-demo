@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIR="$(dirname "$0")"
+. "${DIR}/env"
+
+set -o errexit
+set -o pipefail
+
+# Get new GKE cluster entry/credentials.
+gcloud container clusters get-credentials $CLUSTER_NAME
+
+# Delete KCC created resources 
+kubectl delete -f configs/pubsub-topic.yaml
+
+

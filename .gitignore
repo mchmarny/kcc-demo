@@ -1,0 +1,18 @@
+# Mac metadata files
+.DS_Store
+
+# Crash log files
+crash.log
+
+
+# Local overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# temp 
+temp
+
+# configs
+config/*
