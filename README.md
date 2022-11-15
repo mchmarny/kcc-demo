@@ -21,6 +21,22 @@ This will create GKE cluster (`kcc-demo`) and configure KCC on namespace `demo`:
 bin/setup
 ```
 
+Verify installation:
+
+```shell
+kubectl wait -n cnrm-system --for=condition=Ready pod --all
+```
+
+It may take a minute for the resources to be available. Eventually, if everything installed correctly, you should see at least 5 `condition met` statements:
+
+```shell
+pod/cnrm-controller-manager-0 condition met
+pod/cnrm-deletiondefender-0 condition met
+pod/cnrm-resource-stats-recorder-******-ztwpm condition met
+pod/cnrm-webhook-manager-******-***** condition met
+pod/cnrm-webhook-manager-******-***** condition met
+```
+
 # Demo
 
 > Use `bin/reset` to reset demo state after previous runs 

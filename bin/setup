@@ -71,6 +71,5 @@ kubectl create namespace $DEMO_NS
 kubectl annotate namespace \
     $DEMO_NS "cnrm.cloud.google.com/project-id=${PROJECT_ID}"
 
-# Verifying your installation.
-kubectl wait -n cnrm-system --for=condition=Ready pod --all
+echo "DONE"
 
