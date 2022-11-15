@@ -10,7 +10,7 @@ set -o pipefail
 gcloud container clusters get-credentials $CLUSTER_NAME
 
 # Delete KCC created resources 
-kubectl delete -f configs/pubsub-topic.yaml
+kubectl delete -f config/pubsub-topic.yaml
 
 # Delete GKE cluster.
 gcloud container clusters delete $CLUSTER_NAME --zone=$CLUSTER_ZONE --async
