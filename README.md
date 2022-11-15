@@ -44,7 +44,7 @@ pod/cnrm-webhook-manager-******-***** condition met
 Show available GCP resources in [UI](https://cloud.google.com/config-connector/docs/reference/overview). And by querying the cluster CRDs:
 
 ```shell
-kubectl get crds --selector cnrm.cloud.google.com/managed-by-kcc=true
+kubectl get crds --selector cnrm.cloud.google.com/managed-by-kcc=true # | grep pubsub
 ```
 
 > more info on 

@@ -11,6 +11,5 @@ gcloud container clusters get-credentials $CLUSTER_NAME
 
 # Delete KCC created resources 
 kubectl delete -f config/pubsub-topic.yaml
-kubectl delete -f config/enable-pubsub.yaml
 
 
