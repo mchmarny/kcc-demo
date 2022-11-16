@@ -2,7 +2,9 @@
 
 Collection of Config Connector demos on GKE. More info about KCC [here](https://cloud.google.com/config-connector/docs/how-to/getting-started).
 
-# Assumptions
+> For more on declarative management of Kubernetes objects see [docs here](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/).
+
+## Assumptions
 
 * `gcloud` installed and authenticated
 * `gcloud` defaults defined (example): 
@@ -13,7 +15,7 @@ gcloud config set compute/region us-west1
 gcloud config set compute/zone us-west1-c
 ```
 
-# Setup 
+## Setup 
 
 This will create GKE cluster (`kcc-demo`) and configure KCC on namespace `demo`:
 
@@ -37,7 +39,7 @@ pod/cnrm-webhook-manager-******-***** condition met
 pod/cnrm-webhook-manager-******-***** condition met
 ```
 
-# Demo
+## Demo
 
 > Use `bin/reset` to reset demo state after previous runs 
 
@@ -49,7 +51,7 @@ kubectl get crds --selector cnrm.cloud.google.com/managed-by-kcc=true # | grep p
 
 > more info on 
 
-## PubSub
+### PubSub
 
 Show API description for the PubSubTopic:
 
@@ -104,7 +106,23 @@ You can also navigate to the list of PubSub Topics in [Console](https://console.
 kubectl wait --for=condition=READY pubsubtopics kcc-demo-topic
 ```
 
-# Cleanup
+### BigQuery 
+
+KCC is also not only for service creation, you can also manage objects in those services, see BigQuery dataset example below: 
+
+```yaml
+apiVersion: bigquery.cnrm.cloud.google.com/v1beta1
+  kind: BigQueryDataset
+  metadata:
+    name: bigquerydatasetsample
+  spec:
+    defaultTableExpirationMs: 3600000
+    description: "BigQuery Dataset Sample"
+    friendlyName: bigquerydataset-sample
+    location: US
+```
+
+## Cleanup
 
 To delete all resources created by this demo, including the GKE cluster service account:
 
@@ -114,6 +132,6 @@ bin/cleanup
 
 To only reset demo state use `bin/reset`.
 
-# Disclaimer
+## Disclaimer
 
 This is my personal project and it does not represent my employer. While I do my best to ensure that everything works, I take no responsibility for issues caused by this code.
